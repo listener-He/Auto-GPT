@@ -10,8 +10,8 @@ services:
     build: ./
     volumes:
       - "./scripts:/app"
-      - ".env:/app/.env"
-    profiles: ["exclude-from-up"]
+      - "env-volume:/app/.env"
+    # profiles: ["exclude-from-up"]
 
   redis:
     image: "redis/redis-stack-server:latest"
@@ -20,4 +20,4 @@ services:
 
 volumes:
   redis_data:
-  .env:
+  env-volume:
