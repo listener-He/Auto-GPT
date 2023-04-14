@@ -8,8 +8,7 @@ ENV PIP_NO_CACHE_DIR=yes \
     
 # create app directory & Create logs out
 RUN mkdir -p /app/logs
-RUN chmod 777 /app/logs
-WORKDIR /app    
+RUN chmod 777 /app/logs  
 
 # Create a non-root user and set permissions
 RUN useradd --create-home appuser
