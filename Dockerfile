@@ -5,6 +5,11 @@ FROM python:3.11-slim
 ENV PIP_NO_CACHE_DIR=yes \
     PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1
+    
+# create app directory & Create logs out
+RUN mkdir -p /app/logs
+RUN chmod 777 /app/logs
+WORKDIR /app    
 
 # Create a non-root user and set permissions
 RUN useradd --create-home appuser
@@ -13,11 +18,6 @@ RUN chown appuser:appuser /home/appuser
 USER appuser
 
 
-
-# create app directory & Create logs out
-RUN mkdir -p /app/logs
-RUN chmod 777 /app/logs
-WORKDIR /app
 
 # Copy the requirements.txt file and install the requirements
 COPY --chown=appuser:appuser requirements.txt .
