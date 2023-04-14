@@ -7,8 +7,8 @@ ENV PIP_NO_CACHE_DIR=yes \
     PYTHONDONTWRITEBYTECODE=1
     
 # create app directory & Create logs out
-RUN mkdir -p /app/logs
-RUN chmod 777 /app/logs  
+RUN mkdir -p /home/logs
+RUN chmod 777 /home/logs  
 
 # Create a non-root user and set permissions
 RUN useradd --create-home appuser
