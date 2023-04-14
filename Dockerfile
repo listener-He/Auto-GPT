@@ -6,8 +6,6 @@ ENV PIP_NO_CACHE_DIR=yes \
     PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1
     
-RUN mkdir -p /app/.env
-RUN chmod 777 /app/.env
 # create app directory & Create logs out
 RUN mkdir -p /home/logs
 RUN chmod 777 /home/logs  
