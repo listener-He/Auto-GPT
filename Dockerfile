@@ -12,8 +12,12 @@ WORKDIR /home/appuser
 RUN chown appuser:appuser /home/appuser
 USER appuser
 
-# Create logs out
-RUN mkdir /app/logs && chmod 777 /app/logs
+
+
+# create app directory & Create logs out
+RUN mkdir -p /app/logs
+RUN chmod 777 /app/logs
+WORKDIR /app
 
 # Copy the requirements.txt file and install the requirements
 COPY --chown=appuser:appuser requirements.txt .
