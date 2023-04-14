@@ -11,6 +11,7 @@ services:
     volumes:
       - "./scripts:/app"
       - "env-volume:/app/.env"
+      - "logs:/app/logs"
     # profiles: ["exclude-from-up"]
 
   redis:
@@ -21,3 +22,4 @@ services:
 volumes:
   redis_data:
   env-volume:
+  logs:
