@@ -12,12 +12,17 @@ WORKDIR /home/appuser
 RUN chown appuser:appuser /home/appuser
 USER appuser
 
+# Create logs out
+RUN mkdir /app/logs && chmod 777 /app/logs
+
 # Copy the requirements.txt file and install the requirements
 COPY --chown=appuser:appuser requirements.txt .
 RUN pip install --no-cache-dir --user -r requirements.txt
 
 # Copy the application files
 COPY --chown=appuser:appuser scripts/ .
+
+
 
 # Set the entrypoint
 ENTRYPOINT ["python", "main.py"]
